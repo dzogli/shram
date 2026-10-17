@@ -47,6 +47,8 @@ canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
 h1{font-family:'Cormorant SC',Georgia,serif;font-weight:700;font-size:clamp(56px,13vh,120px);margin:0;line-height:.9;letter-spacing:.06em;color:#f3e3c4;text-shadow:0 0 30px rgba(255,140,50,.45),0 4px 0 #3a1a0e}
 .sub{font-family:'Cormorant SC',Georgia,serif;font-size:clamp(16px,3.6vh,24px);color:var(--muted);margin:6px 0 22px;letter-spacing:.04em}
 .cta{font-family:'Russo One',system-ui,sans-serif;font-size:18px;color:#1a0d06;background:linear-gradient(#ffb766,#e3772a);border:0;border-radius:40px;padding:14px 38px;cursor:pointer;box-shadow:0 0 24px rgba(255,140,50,.45),inset 0 -3px 0 rgba(0,0,0,.25)}
+.devrow,.devgrid{display:grid;gap:6px;margin-bottom:8px}.devrow{grid-template-columns:repeat(4,1fr)}.devgrid{grid-template-columns:repeat(3,1fr)}.devrow .cheatbtn,.devgrid .cheatbtn{margin:0;padding:8px 6px;font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.devtabs{display:flex;gap:4px;margin:4px 0 8px;border-bottom:1px solid var(--btnb)}.devtab{flex:1;background:none;border:0;border-bottom:2px solid transparent;color:var(--muted);font-family:inherit;font-size:13px;padding:8px 4px;cursor:pointer}.devtab.on{color:#ffe2b8;border-bottom-color:var(--lantern)}
 .cheatbtn.on{background:rgba(255,154,60,.3);border-color:var(--lantern);color:#ffe2b8;box-shadow:0 0 14px rgba(255,140,50,.45)}
 .cheatbtn{margin-top:14px;background:none;border:1.5px solid var(--btnb);color:var(--muted);border-radius:20px;padding:7px 18px;font-family:inherit;font-size:13px;cursor:pointer}
 #cheat{background:rgba(8,4,12,.86);z-index:20}
@@ -95,46 +97,26 @@ h1{font-family:'Cormorant SC',Georgia,serif;font-weight:700;font-size:clamp(56px
     <div class="sub">броненосец Проклятой чащи</div>
     <button class="cta" id="go">Играть</button>
     <button class="cheatbtn openCheat">Чит-код</button>
-    <div class="hint kb">← → бег, ↑ или пробел — прыжок, ↓ — шар, Shift — нора, F — огонь, G — супер-удар кувалдой (по дьяволам), K — кулак (с рукой демона — комбо из 3 ударов), прыжок в воздухе — двойной прыжок, P — пауза, M — звук</div>
+    <div class="hint kb">← → бег, ↑ или пробел — прыжок, ↓ — шар, Shift — нора, F — огонь, G — супер-удар кувалдой (бьёт всех вокруг), K — кулак (с рукой демона — комбо из 3 ударов), прыжок в воздухе — двойной прыжок, P — пауза, M — звук</div>
     <div class="hint pt">Шар — таран и защита от врагов. Нора — подкоп под шипами. Призрачные мосты видны только при луне.</div>
   </div>
 
   <div id="pause" class="ov">
     <h2>Пауза</h2>
     <button class="cta" id="resume">Продолжить</button>
+    <button class="cheatbtn" id="quit" style="margin-top:12px">Выйти в главное меню</button>
     <button class="cheatbtn openCheat">Чит-код</button>
   </div>
 
-  <div id="dev" class="ov" style="background:rgba(8,4,12,.9);z-index:21">
-    <h2 style="font-family:'Cormorant SC',Georgia,serif;font-size:34px;margin:0 0 12px;color:#f3e3c4">Режим разработчика</h2>
-    <div style="display:grid;grid-template-columns:repeat(3,auto);gap:8px">
-      <button class="cheatbtn dv" data-a="boss" style="margin:0">⚔ Босс</button>
-      <button class="cheatbtn dv" data-a="bosslow" style="margin:0">⚔ Босс почти мёртв</button>
-      <button class="cheatbtn dv" data-a="crypt" style="margin:0">🕳 Склеп с сундуком</button>
-      <button class="cheatbtn dv" data-a="devils" style="margin:0">😈 К дьяволам</button>
-      <button class="cheatbtn dv" data-a="gate" style="margin:0">🚪 К воротам</button>
-      <button class="cheatbtn dv" data-a="aus" style="margin:0">🦘 Австралия</button>
-      <button class="cheatbtn dv" data-a="fence" style="margin:0">🚧 К забору</button>
-      <button class="cheatbtn dv" data-a="ant" style="margin:0">❄ Антарктида</button>
-      <button class="cheatbtn dv" data-a="ant_ice" style="margin:0">⛸ Лёд</button>
-      <button class="cheatbtn dv" data-a="ant_bliz" style="margin:0">🌨 Метель</button>
-      <button class="cheatbtn dv" data-a="ant_aval" style="margin:0">🏔 Лавина</button>
-      <button class="cheatbtn dv" data-a="ant_cave" style="margin:0">🧊 Пещера</button>
-      <button class="cheatbtn dv" data-a="ant_lair" style="margin:0">🦍 Йети</button>
-      <button class="cheatbtn dv" data-a="ant_wall" style="margin:0">🧱 Стена</button>
-      <button class="cheatbtn dv" data-a="ant_base" style="margin:0">🛰 База</button>
-      <button class="cheatbtn dv" data-a="ant_ufo" style="margin:0">🛸 Тарелка</button>
-      <button class="cheatbtn dv" data-a="au_river" style="margin:0">🐊 Река</button>
-      <button class="cheatbtn dv" data-a="au_cave" style="margin:0">💎 Пещера</button>
-      <button class="cheatbtn dv" data-a="au_storm" style="margin:0">🌪 Буря</button>
-      <button class="cheatbtn dv" data-a="au_ring" style="margin:0">🥊 Ринг</button>
-      <button class="cheatbtn dv" data-a="au_gens" style="margin:0">⚡ Генераторы</button>
-      <button class="cheatbtn dv" data-a="start" style="margin:0">↺ Начало уровня</button>
-      <button class="cheatbtn dv" data-a="arm" style="margin:0">🔥 Дать руку демона</button>
-      <button class="cheatbtn dv" data-a="god" style="margin:0">🛡 Бог вкл/выкл</button>
-      <button class="cheatbtn dv" data-a="shards" style="margin:0">◆ +50 осколков</button>
+  <div id="dev" class="ov" style="background:rgba(8,4,12,.92);z-index:21;justify-content:flex-start;overflow-y:auto;padding:14px 12px">
+    <div style="width:100%;max-width:620px">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px"><span style="font-family:'Cormorant SC',Georgia,serif;font-size:26px;color:#f3e3c4">Разработчик</span><button class="cheatbtn" id="devClose" style="margin:0">✕ Закрыть</button></div>
+      <div class="devrow"><button class="cheatbtn dv" data-a="god">🛡 Бог</button><button class="cheatbtn dv" data-a="arm">🔥 Рука демона</button><button class="cheatbtn dv" data-a="star">⭐ Звезда</button><button class="cheatbtn dv" data-a="shards">◆ +50</button></div>
+      <div class="devtabs"><button class="devtab on" data-t="t1">Уровень 1</button><button class="devtab" data-t="t2">Австралия</button><button class="devtab" data-t="t3">Антарктида</button></div>
+      <div class="devgrid" data-g="t1"><button class="cheatbtn dv" data-a="start">↺ Начало</button><button class="cheatbtn dv" data-a="devils">😈 Дьяволы</button><button class="cheatbtn dv" data-a="crypt">🕳 Склеп</button><button class="cheatbtn dv" data-a="gate">🚪 Ворота</button><button class="cheatbtn dv" data-a="boss">⚔ Босс</button><button class="cheatbtn dv" data-a="bosslow">⚔ Босс 10%</button></div>
+      <div class="devgrid" data-g="t2" style="display:none"><button class="cheatbtn dv" data-a="aus">🦘 Начало</button><button class="cheatbtn dv" data-a="au_river">🐊 Река</button><button class="cheatbtn dv" data-a="au_cave">💎 Пещера</button><button class="cheatbtn dv" data-a="au_storm">🌪 Буря</button><button class="cheatbtn dv" data-a="au_ring">🥊 Ринг</button><button class="cheatbtn dv" data-a="au_gens">⚡ Генераторы</button><button class="cheatbtn dv" data-a="fence">🚧 Забор</button></div>
+      <div class="devgrid" data-g="t3" style="display:none"><button class="cheatbtn dv" data-a="ant">❄ Начало</button><button class="cheatbtn dv" data-a="ant_ice">⛸ Лёд</button><button class="cheatbtn dv" data-a="ant_bliz">🌨 Метель</button><button class="cheatbtn dv" data-a="ant_aval">🏔 Лавина</button><button class="cheatbtn dv" data-a="ant_cave">🧊 Пещера</button><button class="cheatbtn dv" data-a="ant_lair">🦍 Йети</button><button class="cheatbtn dv" data-a="ant_wall">🧱 Стена</button><button class="cheatbtn dv" data-a="ant_base">🛰 База</button><button class="cheatbtn dv" data-a="ant_ufo">🛸 Тарелка</button></div>
     </div>
-    <button class="cheatbtn" id="devClose">Закрыть</button>
   </div>
 
   <div id="cheat" class="ov">
@@ -269,6 +251,7 @@ const S={
   snap(){if(!A.ctx)return;const t=now();tone(1400,t,.12,{type:'square',f2:300,v:.12,filt:3000});noise(t,.15,{f:3000,v:.2,type:'bandpass',q:2});tone(90,t,.15,{type:'sine',f2:50,v:.3})},
   splash(){if(!A.ctx)return;const t=now();noise(t,.6,{f:2400,f2:200,v:.35,type:'lowpass'});noise(t+.05,.3,{f:5000,v:.08,type:'highpass'})},
   zap(){if(!A.ctx)return;const t=now();tone(110,t,.25,{type:'square',v:.07,filt:2400});noise(t,.2,{f:6000,v:.08,type:'highpass'})},
+  star(){if(!A.ctx)return;const t=now();[72,76,79,84,88,91].forEach((m,i)=>tone(mtof(m),t+i*.06,.4,{type:'square',v:.05,filt:3000,rev:.4}))},
   bell(){if(!A.ctx)return;const t=now();[880,1320,1760].forEach((f,i)=>tone(f,t+i*.01,1.4,{type:'sine',v:.07,rev:.6}))},
   gust(){if(!A.ctx)return;const t=now();noise(t,1.2,{f:300,f2:900,v:.1,type:'bandpass',q:.8,a:.4})},
   cicada(){if(!A.ctx)return;const c=A.ctx,t=now(),s=c.createBufferSource();s.buffer=A.nb;s.loop=true;const f=c.createBiquadFilter();f.type='bandpass';f.frequency.value=5200;f.Q.value=6;const g=c.createGain(),l=c.createOscillator(),lg=c.createGain();l.frequency.value=38;lg.gain.value=.04;l.connect(lg);lg.connect(g.gain);g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(.05,t+.6);g.gain.setValueAtTime(.05,t+2);g.gain.linearRampToValueAtTime(0,t+3);s.connect(f);f.connect(g);g.connect(A.sfx);s.start(t,Math.random());l.start(t);s.stop(t+3.1);l.stop(t+3.1)},
@@ -464,14 +447,14 @@ function enterCrypt(d){d.used=true;saved={G,h,plats,walls,brambles,enemies,shard
 function exitCrypt(){const sv=saved;({G,h,plats,walls,brambles,enemies,shards,checkpoints,signs,decos,drops,devils,chests,orbs,gateX,levelEnd,lastCP,gateT}=sv);inCrypt=false;saved=null;crypt=null;placeHero(sv.dx+70)}
 /* ---------- STATE ---------- */
 let P,cam={x:0,y:0},camLook=0,state='title',time=0,playTime=0,moonT=8,moonVis=0,moonTarget=0,flash=0,lightT=8,thunderAt=-1,shake=0,won=false,wonT=0,winShown=false,kills=0,deaths=0,lastCP=120,parts=[],flies=[];
-const keys={l:false,r:false,j:false,b:false,d:false,f:false,h:false,k:false},pr={j:false,b:false,d:false,f:false,h:false,k:false};let fires=[],fxs=[];let iceZ=[],campfires=[],drifts=[],icicles=[],lasers=[],levers=[],eproj=[],aval=null,blizZ=null,iceCave=null,baseZ=null,ring2=null,AQPOS={},heat=1,coldT=0,blizI=0,antT=2;
+const keys={l:false,r:false,j:false,b:false,d:false,f:false,h:false,k:false},pr={j:false,b:false,d:false,f:false,h:false,k:false};let fires=[],fxs=[];let pups=[];let iceZ=[],campfires=[],drifts=[],icicles=[],lasers=[],levers=[],eproj=[],aval=null,blizZ=null,iceCave=null,baseZ=null,ring2=null,AQPOS={},heat=1,coldT=0,blizI=0,antT=2;
 let traps=[],waters=[],caveZ=null,stormZ=null,ring=null,AUPOS={},gensLeft=0,stormI=0,ovl=null,ovx=null;let ausT=3,sayCD=0,ARL=120,ARR=1380;let fade=null,inCrypt=false,saved=null,chests=[],orbs=[],crypt=null,toast=null;const CHEST_K=2;
 let LEVEL=1,devils=[],devKills=0,gateT=-1,trans=null,hamT=-1,hamHit=false,hamCD=0;
 function resetGame(){
   inCrypt=false;saved=null;chests=[];orbs=[];fade=null;
   gateT=-1;hamT=-1;hamCD=0;if(LEVEL===1)devKills=0;
   build();
-  P={x:120,y:gAt(120),vx:0,vy:0,ground:true,plat:null,dir:1,rolling:false,dig:false,digE:1,inv:0,dead:0,shards:0,jumping:false,slope:0,legT:0,rot:0,idle:0,skidT:0,hurtT:0,jbuf:0,coy:0,dj:false,digT:0,emT:-1,atkT:-1,fired:false,fireCD:0,stuck:null,puT:-1,puStage:0,puHit:false,puQ:false,puEnd:-9,say:null};fires=[];fxs=[];
+  P={x:120,y:gAt(120),vx:0,vy:0,ground:true,plat:null,dir:1,rolling:false,dig:false,digE:1,inv:0,dead:0,shards:0,jumping:false,slope:0,legT:0,rot:0,idle:0,skidT:0,hurtT:0,jbuf:0,coy:0,dj:false,digT:0,emT:-1,atkT:-1,fired:false,fireCD:0,stuck:null,star:0,puT:-1,puStage:0,puHit:false,puQ:false,puEnd:-9,say:null};fires=[];fxs=[];
   cam.x=0;cam.y=P.y-VH*.62;won=false;wonT=0;winShown=false;kills=0;deaths=0;lastCP=120;playTime=0;parts=[];moonT=8;moonVis=0;
 }
 resetGame();
@@ -484,7 +467,7 @@ function dust(x,y,n,dir=0){for(let i=0;i<n;i++)part(x+rnd(-6,6),y-rnd(0,4),rnd(-
 function land(y,q){P.dj=false;const hard=P.vy>9;if(q&&q.thin&&hard)q.thin.c=9;P.y=y;P.vy=0;P.ground=true;P.plat=q;P.jumping=false;P.rolling=keys.b&&Math.abs(P.vx)>1;if(hard){S.land();dust(P.x,P.y,8);shake=Math.max(shake,3)}else dust(P.x,P.y,3)}
 function exitDig(big){P.emT=0;const eg=gAt(P.x);fxs.push({k:'burst',x:P.x,y:eg===null?P.y:eg,t:0,dir:P.dir});P.dig=false;rumbleOff();P.ground=false;P.plat=null;P.vy=big?-11.5:-6;P.jumping=true;S.pop();for(let i=0;i<14;i++)part(P.x+rnd(-8,8),P.y-4,rnd(-3,3),-rnd(2,6),rnd(.4,.8),i%2?'#4a3428':'#6b4c38',rnd(2,4),.3)}
 function hurt(fromX){
-  if(GOD||P.inv>0||P.dead)return;
+  if(GOD||P.inv>0||P.dead||P.star>0)return;
   if(P.shards>0){
     const n=Math.min(P.shards,16);
     for(let i=0;i<n;i++){const a=-Math.PI/2+(i/(n-1||1)-.5)*2.6;drops.push({x:P.x,y:P.y-16,vx:Math.cos(a)*rnd(2.5,5),vy:Math.sin(a)*rnd(4,7),t:0})}
@@ -504,6 +487,7 @@ function hamFrame(){let t=0;for(const q of HSEQ){t+=q[1];if(hamT<t)return q[0]}r
 function hammerImpact(p){const ix=p.x+p.dir*50,ig=gAt(ix),iy=ig===null?p.y:ig;fxs.push({k:'imp',x:ix,y:iy,t:0});shake=13;S.slam();
   for(let i=0;i<16;i++)part(ix+rnd(-20,20),iy-2,rnd(-5,5),-rnd(2,7),rnd(.4,.9),i%3?'#7a6450':'#4a3a2c',rnd(3,6),.35);
   for(let i=0;i<8;i++)part(ix,iy-4,rnd(-6,6),-rnd(3,8),rnd(.2,.4),'#ffd27a',2,.2,GL.amber);
+  for(const e of enemies){if(!e.alive||e.gone||e.type==='gen'||e.type==='champ'||e.type==='yeti'||e.type==='yboss')continue;const c=ectr(e);if(!c)continue;if(Math.hypot(c[0]-ix,c[1]-iy)<130){if(e.type==='boss')bossHit(e,4);else killEnemy(e)}}
   for(const w of walls)if(w.crack&&!w.broken&&Math.abs(w.x+w.w/2-ix)<90){w.broken=true;S.crack();S.brk();shake=18;toast={t:0,text:'ПРОХОД ОТКРЫТ!'};for(let k=0;k<50;k++)part(w.x+rnd(0,w.w),w.top+rnd(0,w.ht),rnd(-5,5),-rnd(1,7),rnd(.7,1.4),k%2?'#d8f0ff':'#8ac8e8',rnd(3,8),.3)}
   for(const e of enemies){if((e.type==='yeti'||e.type==='yboss')&&e.alive&&!e.dead&&Math.abs(e.x-ix)<110)yetiHit(e,3);if(e.type==='gen'&&!e.dead&&Math.abs(e.x-ix)<90)genHit(e,3);if(e.type==='champ'&&!e.dead&&Math.abs(e.x-ix)<110)champHit(e,3)}
   for(const c of chests){if(c.st===0&&Math.abs(c.x-ix)<110){c.st=1;c.t=0;S.brk();shake=16;orbs.push({x:c.x,y:c.gy-80,t:0,taken:false});for(let k=0;k<26;k++)part(c.x,c.gy-30,rnd(-6,6),-rnd(2,8),rnd(.6,1.2),k%2?'#4a3a2a':'#2a2018',rnd(3,6),.35)}}
@@ -754,14 +738,14 @@ function stepPlayer(){
   // brambles
   if(p.inv<=0)for(const b of brambles){if(p.x>b.x+4&&p.x<b.x+b.w-4){const g=gAt(p.x);if(g!==null&&p.y>g-26){hurt(b.x+b.w/2);break}}}
   // enemies
-  const attacking=p.rolling||(p.jumping&&!p.ground);
+  const attacking=p.rolling||(p.jumping&&!p.ground)||p.star>0;
   for(const e of enemies){
     if(!e.alive||e.gone)continue;
     let ex=e.x,ey;
     if(e.type==='pump')ey=e.y-27;else if(e.type==='worm'){if(e.hh<26)continue;ey=e.gy-44}else if(e.type==='crow')ey=e.y-14;else if(e.type==='boss')ey=e.y-75;else if(e.type==='kanga')ey=e.y-28;else if(e.type==='dingo')ey=e.y-12;else if(e.type==='champ')ey=e.y-45;else if(e.type==='gen')ey=e.y-14;else if(e.type==='peng')ey=e.y-12;else if(e.type==='yeti')ey=e.y-36;else if(e.type==='yboss')ey=e.y-58;else if(e.type==='seal'){if(e.st!=='leap')continue;ey=e.y-8}else ey=e.y;
     const dx=ex-p.x,dy=ey-(p.y-24),rr=e.r+20;
     if(dx*dx+dy*dy<rr*rr){
-      if(attacking){killEnemy(e);if(!p.ground)p.vy=J?-9.5:-6.5}
+      if(attacking){if(p.star>0&&!(p.rolling||(p.jumping&&!p.ground))&&(e.type==='boss'||e.type==='champ'||e.type==='yboss'||e.type==='gen'))continue;killEnemy(e);if(!p.ground&&!(p.star>0))p.vy=J?-9.5:-6.5}
       else if(p.inv<=0)hurt(ex);
     }
   }
@@ -854,7 +838,7 @@ function step(){
     for(const q of plats)if(q.mv){q.px=q.x;q.x+=q.mv.d*q.mv.s;if(q.x<q.mv.a){q.x=q.mv.a;q.mv.d=1}if(q.x+q.w>q.mv.b){q.x=q.mv.b-q.w;q.mv.d=-1}}
     if(P.plat&&P.plat.mv&&P.ground)P.x+=P.plat.x-P.plat.px;
     for(const q of plats)if(q.croc&&Math.random()<.2){const ph=((time+q.croc.ph)%q.croc.per);if(ph>q.croc.up-.6&&ph<q.croc.up)part(q.x+rnd(0,q.w),q.y+6,0,-rnd(.3,.8),.4,'#bfe8ff',2,-.01)}
-    if(!P.dead&&!P.stuck&&P.ground&&!P.dig)for(const t of traps){if(t.st===0&&Math.abs(P.x-t.x)<13){t.st=1;t.t=0;P.stuck={t,need:6};P.vx=0;S.snap();shake=6;P.say={text:'ЖМИ ПРЫЖОК! (6)',t:0};break}}
+    if(!P.dead&&!P.stuck&&P.ground&&!P.dig&&!(P.star>0))for(const t of traps){if(t.st===0&&Math.abs(P.x-t.x)<13){t.st=1;t.t=0;P.stuck={t,need:6};P.vx=0;S.snap();shake=6;P.say={text:'ЖМИ ПРЫЖОК! (6)',t:0};break}}
     if(P.stuck){P.vx=0;P.x=P.stuck.t.x;if(pr.j){pr.j=false;P.stuck.need--;S.thunk();shake=3;P.say={text:P.stuck.need>0?'ЖМИ ПРЫЖОК! ('+P.stuck.need+')':'СВОБОДА!',t:.12};if(P.stuck.need<=0){const tt=P.stuck.t;tt.st=3;for(let k=0;k<14;k++)part(tt.x+rnd(-12,12),tt.gy-4,rnd(-3,3),-rnd(1,4),rnd(.4,.8),k%3?'rgba(170,120,80,.7)':'#8a8a94',rnd(2,4),.2);S.snap();P.stuck=null;P.vy=-6;P.ground=false;P.jumping=true}}}
     for(const z of waters)if(!P.dead&&P.x>z.x0&&P.x<z.x1&&P.y>z.y+8){S.splash();for(let i=0;i<16;i++)part(P.x,z.y,rnd(-3,3),-rnd(2,6),.6,'#bfe8ff',3,.25);die();break}
     for(const e of enemies)if(e.alive&&!e.gone&&e.y!==undefined)for(const z of waters)if(e.x>z.x0&&e.x<z.x1&&e.y>z.y+8&&e.type!=='crow'&&e.type!=='bat')e.gone=true;
@@ -864,6 +848,8 @@ function step(){
     if(ring&&!ring.done){const c=enemies.find(e=>e.type==='champ');if(!ring.lock&&c&&!c.dead&&P.x>ring.x0+90&&P.x<ring.x1){ring.lock=true;S.bell();toast={t:0,text:'РИНГ! ПОБЕДИ ЧЕМПИОНА'}}if(ring.lock){P.x=clamp(P.x,ring.x0+22,ring.x1-22);if(!c||!c.alive){ring.lock=false;ring.done=true;toast={t:0,text:'ЧЕМПИОН ПОВЕРЖЕН!'};S.bell()}}}
     if(gensLeft>0&&P.x>gateX-12&&!P.dead){P.x=gateX-12;P.vx=-5;S.zap();if(P.inv<=0)hurt(gateX+40)}
   }
+  if(P.star>0){P.star-=DT;if(Math.random()<.6)part(P.x+rnd(-16,16),P.y-rnd(5,60),rnd(-.5,.5),-rnd(.3,1.2),.5,['#ffe27a','#fff','#7affd0','#ff9ad0'][Math.floor(Math.random()*4)],2,0,GL.yellow);if(P.star<=0){P.star=0;toast={t:0,text:'НЕУЯЗВИМОСТЬ ЗАКОНЧИЛАСЬ'}}}
+  if(!inCrypt)for(const q of pups){if(q.taken)continue;if(!P.dead&&Math.abs(P.x-q.x)<28&&Math.abs(P.y-30-q.y)<48){q.taken=true;P.star=10;S.star();toast={t:0,text:'НЕУЯЗВИМОСТЬ! 10 СЕКУНД'};shake=6;for(let i=0;i<26;i++)part(q.x,q.y,rnd(-4,4),rnd(-4,4),.7,'#ffe27a',3,0,GL.yellow)}}
   stepPlayer();stepEnemies();
   if(inCrypt&&P.y-58<crypt.ceil){P.y=crypt.ceil+58;if(P.vy<0)P.vy=0}
   for(const c of chests)if(c.st)c.t+=DT;
@@ -1064,6 +1050,7 @@ function genFrozen(){const b=PB(30,40),r=mulberry(12);ell(b,15,22,11,14,()=>'#1a
 function genIceRock(){const b=PB(24,16);poly(b,[[1,16],[4,6],[10,1],[16,4],[22,9],[23,16]],(x,y)=>shade(.8-x/30-y/40,x,y,['#5a90b8','#8ac0e0','#c8e8f8','#f0faff']));outline(b,'#2a5a80');return toCv(b)}
 function genSnowpile(){const b=PB(22,9);ell(b,11,9,10,6,(x,y,nx,ny)=>y>8?0:shade(.8-ny*.4,x,y,['#c8d8ea','#e8f0f8','#ffffff']));return toCv(b)}
 function genFlag(){const b=PB(16,30);for(let y=2;y<30;y++)sp(b,2,y,'#5a5a62');for(let y=2;y<10;y++)for(let x=3;x<14;x++)sp(b,x,y,y<6?'#e83030':'#f4f4f4');outline(b,OUTC);return toCv(b)}
+function genStar(){const b=PB(16,16);const pts=[];for(let i=0;i<10;i++){const a=-Math.PI/2+i*Math.PI/5,r=i%2?3.4:7.6;pts.push([8+Math.cos(a)*r,8+Math.sin(a)*r])}poly(b,pts,(x,y)=>shade(.85-(y/16)*.5-(x/16)*.15,x,y,['#c88a10','#f0b020','#ffd860','#fff4c0']));sp(b,6,6,'#ffffff');sp(b,6,9,'#3a2a08');sp(b,9,9,'#3a2a08');outline(b,'#5a3a04');return toCv(b)}
 function genSand(){const W=160,H=280,b=PB(W,H),r=mulberry(81),deep=['#3a160a','#52200e','#6a2c14','#863a1c','#a44a24'];const md=[];for(let x=0;x<W;x++)md[x]=3+Math.floor(r()*4);
   for(let y=0;y<H;y++)for(let x=0;x<W;x++){let c;if(y===0)c=(x%9===0)?'#f8c080':'#eca060';else if(y===1)c='#d8804a';else if(y<md[x])c=shade(.7-(y-2)*.2,x,y,['#a84a24','#c45e2c','#d8743a']);else c=shade(.95-(y-md[x])/190,x,y,deep,.8);sp(b,x,y,c)}
   for(let i=0;i<70;i++){const sx=r()*W,sy=8+r()*250,rx=1+r()*3,ry=.8+r()*1.8;for(const ox of[-W,0,W])ell(b,sx+ox,sy,rx,ry,(x,y,nx,ny)=>shade(.75-ny*.5-sy/400,x,y,['#5a2410','#8a4a2a','#c87a50','#e8a878']))}
@@ -1229,7 +1216,7 @@ function buildSprites(){
   SPR.cloudSoil=genCloudSoil();SPR.slabH=genSlabH();SPR.cityH=genCityH();
   SPR.cloudH=[genCloudW(4,90,30),genCloudW(5,130,36),genCloudW(6,70,24)];
   SPR.cstripFar=genCloudStrip(520,90,9,['#c6d2f0','#d6e0f6','#e6ecfa']);SPR.cstripNear=genCloudStrip(640,110,13,['#d8e0f4','#eef2fc','#ffffff']);
-  SPR.fogW=genFogW();SPR.stoneSoil=genStoneSoil();SPR.peng=[0,1,2].map(genPeng);SPR.yeti=[0,1,2].map(genYeti);SPR.drone=genDrone();SPR.seal=genSeal();SPR.icicle=genIcicle();SPR.ufo=genUFO();SPR.snow=genSnow();SPR.metal=genMetal();SPR.slabIce=genSlabIce();SPR.iceTile=genIceTile();SPR.panel=genPanel();SPR.berg=genBerg();SPR.dune=genDune();SPR.igloo=genIgloo();SPR.frozen=genFrozen();SPR.icerock=genIceRock();SPR.snowpile=genSnowpile();SPR.flag=genFlag();SPR.trapO=genTrap(false);SPR.trapC=genTrap(true);SPR.croc=genCroc();SPR.gen=genGen(false);SPR.genB=genGen(true);SPR.kanga=[0,1,2,3].map(genKanga);SPR.dingo=[0,1,2,3].map(genDingo);SPR.magPerch=genMagpie('perch',0);SPR.magFly=[genMagpie('fly',0),genMagpie('fly',1)];SPR.sand=genSand();SPR.slabAU=genSlabAU();SPR.euca=[genEuca(3),genEuca(8),genEuca(21)];SPR.termite=genTermite();SPR.tuft=genTuft();SPR.spin=genSpin();SPR.rockau=genRockAU();SPR.roadsign=genRoadSign();SPR.windtower=genWindTower();SPR.uluru=genUluru();SPR.mesa=genMesa();SPR.bush=genBush();SPR.brick=genBrick();SPR.torch=genTorch();
+  SPR.fogW=genFogW();SPR.stoneSoil=genStoneSoil();SPR.star=genStar();SPR.peng=[0,1,2].map(genPeng);SPR.yeti=[0,1,2].map(genYeti);SPR.drone=genDrone();SPR.seal=genSeal();SPR.icicle=genIcicle();SPR.ufo=genUFO();SPR.snow=genSnow();SPR.metal=genMetal();SPR.slabIce=genSlabIce();SPR.iceTile=genIceTile();SPR.panel=genPanel();SPR.berg=genBerg();SPR.dune=genDune();SPR.igloo=genIgloo();SPR.frozen=genFrozen();SPR.icerock=genIceRock();SPR.snowpile=genSnowpile();SPR.flag=genFlag();SPR.trapO=genTrap(false);SPR.trapC=genTrap(true);SPR.croc=genCroc();SPR.gen=genGen(false);SPR.genB=genGen(true);SPR.kanga=[0,1,2,3].map(genKanga);SPR.dingo=[0,1,2,3].map(genDingo);SPR.magPerch=genMagpie('perch',0);SPR.magFly=[genMagpie('fly',0),genMagpie('fly',1)];SPR.sand=genSand();SPR.slabAU=genSlabAU();SPR.euca=[genEuca(3),genEuca(8),genEuca(21)];SPR.termite=genTermite();SPR.tuft=genTuft();SPR.spin=genSpin();SPR.rockau=genRockAU();SPR.roadsign=genRoadSign();SPR.windtower=genWindTower();SPR.uluru=genUluru();SPR.mesa=genMesa();SPR.bush=genBush();SPR.brick=genBrick();SPR.torch=genTorch();
 }
 function makeScreenSprites(){
   const b=PB(LW,LH),cols=['#0b0616','#140a24','#1e1032','#2c1640','#3e1c4a','#54224e','#6a2a4e'];
@@ -1434,7 +1421,8 @@ function drawWorldObjects(){
     glowB(GL.green,sx,sy-50,150,.35+.2*p);b.globalAlpha=.25+.15*p;b.fillStyle='#7aff9a';for(let i=0;i<14;i++){const a=time*1.5+i*.45,rr=10+i*2.4;b.fillRect(Math.round(sx+Math.cos(a)*rr*.8),Math.round(sy-48+Math.sin(a)*rr),1,1)}b.globalAlpha=1;
     b.drawImage(SPR.gate,sx-62,sy-133)}
 }
-function drawShards(){
+function drawPups(){if(inCrypt)return;const b=bctx;for(const q of pups){if(q.taken||q.x<rcx-30||q.x>rcx+VW+30)continue;const sx=WX(q.x),sy=WY(q.y)+Math.round(Math.sin(time*3+q.x)*3);glowB(GL.yellow,sx,sy,44+Math.sin(time*6)*6,.7);b.save();b.translate(sx,sy);b.rotate(Math.sin(time*2)*.25);b.drawImage(SPR.star,-8,-8);b.restore()}}
+function drawShards(){drawPups();
   const b=bctx;
   for(const s of shards){if(s.taken||s.x<rcx-20||s.x>rcx+VW+20)continue;const f=SPR.shard[Math.floor(time*8+s.x*.013)%4],sx=WX(s.x),sy=WY(s.y)+Math.round(Math.sin(time*3+s.x*.05)*1.5);glowB(GL.amber,sx,sy,18,.4);b.drawImage(f,sx-5,sy-7)}
   for(const d of drops){if(d.t>3.5&&Math.sin(time*30)<0)continue;const f=SPR.shard[Math.floor(time*14+d.x)%4],sx=WX(d.x),sy=WY(d.y);b.drawImage(f,sx-5,sy-7)}
@@ -1562,6 +1550,7 @@ function drawHiRes(){
   for(const o of orbs){if(o.taken)continue;const X=WX(o.x)*u,Y=(WY(o.y)+Math.sin(time*3)*3)*u,R=7*u*Math.min(1,o.t*3);if(R<=0)continue;
     ctx.globalCompositeOperation='lighter';const gr=ctx.createRadialGradient(X,Y,0,X,Y,R*4);gr.addColorStop(0,'rgba(255,90,40,.7)');gr.addColorStop(1,'rgba(255,0,40,0)');ctx.fillStyle=gr;ctx.fillRect(X-R*4,Y-R*4,R*8,R*8);ctx.globalCompositeOperation='source-over';
     {const F=BD.gaunt[Math.floor(time*2.5)%2],k=sc*Math.min(1,o.t*3);if(F.img.complete)ctx.drawImage(F.img._im||F.img,X-F.ax*k,Y-F.ay*k,F.w*k,F.h*k)}}
+  if(P.star>0&&!P.dead){const X=WX(P.x)*u,Y=WY(P.y-28)*u,hue=(time*360)%360;ctx.globalCompositeOperation='lighter';const gr=ctx.createRadialGradient(X,Y,0,X,Y,46*u);gr.addColorStop(0,`hsla(${hue},100%,70%,${P.star<2&&Math.sin(time*20)>0?.15:.4})`);gr.addColorStop(1,'hsla(0,0%,0%,0)');ctx.fillStyle=gr;ctx.fillRect(X-46*u,Y-46*u,92*u,92*u);ctx.globalCompositeOperation='source-over'}
   if(P.demon&&!P.dead&&!P.dig){const X=WX(P.x)*u,Y=WY(P.y-28)*u,pu=.5+.5*Math.sin(time*5);ctx.globalCompositeOperation='lighter';const gr=ctx.createRadialGradient(X,Y,0,X,Y,40*u);gr.addColorStop(0,`rgba(255,50,20,${.22+.12*pu})`);gr.addColorStop(1,'rgba(200,0,30,0)');ctx.fillStyle=gr;ctx.fillRect(X-40*u,Y-40*u,80*u,80*u);ctx.globalCompositeOperation='source-over'}
   ctx.imageSmoothingEnabled=false;
 }
@@ -1621,6 +1610,7 @@ function drawOverlay(){
   if(fade){const t=fade.t,a=t<.35?t/.35:Math.max(0,1-(t-.35)/.5);ctx.fillStyle=`rgba(0,0,0,${a})`;ctx.fillRect(0,0,cv.width,cv.height)}
   {const B=LEVEL===3?enemies.find(e=>e.type==='boss'):(LEVEL===4&&ring&&ring.lock)?enemies.find(e=>e.type==='champ'):(LEVEL===5&&ring2&&ring2.lock)?enemies.find(e=>e.type==='yboss'):null;if(B){const bw=Math.min(cv.width*.5,220*u),bx=cv.width/2-bw/2,by=14*u,bh=7*u;txt((B.name||'ВЛАДЫКА ПРЕИСПОДНЕЙ'),cv.width/2,by-11*u+3*u,'#ffb08a',6*u,'center');ctx.fillStyle='#1a0406';ctx.fillRect(bx-u,by-u,bw+2*u,bh+2*u);ctx.fillStyle='#5a1a1a';ctx.fillRect(bx,by,bw,bh);ctx.fillStyle='#f0d0a0';ctx.fillRect(bx,by,bw*B.ghost/B.maxhp,bh);const gg=ctx.createLinearGradient(0,by,0,by+bh);gg.addColorStop(0,'#ff5a3a');gg.addColorStop(1,'#a01010');ctx.fillStyle=gg;ctx.fillRect(bx,by,bw*B.hp/B.maxhp,bh)}}
   if(P.say&&P.say.t>=0&&!P.dead){const sx=WX(P.x)*u,sy=WY(P.y-82)*u,fs=5*u;ctx.font=`${fs}px ${PFONT}`;const tw=ctx.measureText(P.say.text).width,pad=4*u,bw=tw+pad*2,bh=fs+pad*2,sc2=Math.min(1,P.say.t/.12);let bx=clamp(sx-bw/2,6*u,cv.width-bw-6*u),by=sy-bh;ctx.save();ctx.translate(sx,sy);ctx.scale(sc2,sc2);ctx.translate(-sx,-sy);ctx.fillStyle='#1a0e08';ctx.fillRect(bx-u,by-u,bw+2*u,bh+2*u);ctx.fillStyle='#f6ecd8';ctx.fillRect(bx,by,bw,bh);ctx.beginPath();ctx.moveTo(sx-3*u,sy-u);ctx.lineTo(sx+3*u,sy-u);ctx.lineTo(sx,sy+5*u);ctx.closePath();ctx.fill();ctx.fillStyle='#2a1208';ctx.textAlign='left';ctx.textBaseline='top';ctx.fillText(P.say.text,bx+pad,by+pad);ctx.restore()}
+  if(P.star>0)txt('ЗВЕЗДА '+Math.ceil(P.star),cv.width/2,cv.height-26*u,'#ffe27a',8*u,'center');
   if(GOD)txt('GOD',x0,y0+(LEVEL===1?58:(LEVEL===4||LEVEL===5)?46:34)*u,'#ffd27a',6*u);
   if(trans){const t=trans.t,a=t<1.1?t/1.1:Math.max(0,1-(t-1.1)/1.6);ctx.fillStyle=t<1.1?(trans.to===5?`rgba(235,245,255,${a})`:`rgba(255,90,20,${a})`):`rgba(40,0,4,${a})`;ctx.fillRect(0,0,cv.width,cv.height);
     if(t>.7&&t<2.8){txt(trans.to===5?'УРОВЕНЬ 3 · АНТАРКТИДА':trans.to===4?'УРОВЕНЬ 2 · АВСТРАЛИЯ':'АРЕНА · ВЛАДЫКА',cv.width/2,cv.height/2-8*u,t<1.1?'#2a0a04':'#a07820',10*u,'center')}}
@@ -1662,9 +1652,11 @@ requestAnimationFrame(frame);
 const km={ArrowLeft:'l',KeyA:'l',ArrowRight:'r',KeyD:'r',ArrowUp:'j',KeyW:'j',Space:'j',KeyZ:'j',ArrowDown:'b',KeyS:'b',ShiftLeft:'d',ShiftRight:'d',KeyX:'d',KeyF:'f',KeyC:'f',KeyG:'h',KeyV:'h',KeyK:'k',KeyJ:'k',KeyE:'d'};
 let GOD=false,safeX=120,safeY=300;
 let DEV=false,hurtFlash=0,devArm=false;
-const DEV_TOGGLE={god:1,arm:1,shards:1};
+const DEV_TOGGLE={god:1,arm:1,shards:1,star:1};
 function devRefresh(){document.querySelectorAll('.dv').forEach(b=>{const a=b.dataset.a;b.classList.toggle('on',(a==='god'&&GOD)||(a==='arm'&&devArm))})}
-const _resetGame=resetGame;resetGame=function(){_resetGame();if(devArm)P.demon=true};
+const _resetGame=resetGame;resetGame=function(){_resetGame();if(devArm)P.demon=true;placePups()};
+function placePups(){pups=[];if(LEVEL===3||LEVEL===2)return;const fr=LEVEL===1?[.2,.52,.8]:[.27,.6,.86];for(const f of fr){let x=levelEnd*f;for(let k=0;k<60;k++){const g=gAt(x);if(g!==null&&gAt(x-30)!==null&&gAt(x+30)!==null&&!(ring&&x>ring.x0&&x<ring.x1)&&!(ring2&&x>ring2.x0&&x<ring2.x1)){pups.push({x,y:g-52,taken:false});break}x+=37}}}
+placePups();
 function devGo(fn){if(state==='title')startGame();else{['pause','win'].forEach(id=>$(id).classList.remove('show'));state='play';showControls(true);if(A.ctx)A.ctx.resume()}$('dev').classList.remove('show');$('cheat').classList.remove('show');trans=null;fade=null;won=false;winShown=false;fn();last=performance.now()}
 const DEVACT={
   boss:()=>{LEVEL=3;resetGame();P.x=300;P.y=gAt(300);cam.x=0;cam.y=P.y-VH*.62},
@@ -1691,7 +1683,8 @@ const DEVACT={
   arm:()=>{devArm=!devArm;if(P)P.demon=devArm},
   god:()=>{GOD=!GOD},
   bosslow:()=>{if(LEVEL!==3)DEVACT.boss();const B=enemies.find(e=>e.type==='boss');if(B){B.hp=6;B.ghost=6;B.phase=2}},
-  shards:()=>{P.shards+=50}
+  shards:()=>{P.shards+=50},
+  star:()=>{P.star=10}
 };
 function applyCheat(v){const c=(v||'').trim().toUpperCase();const m=document.getElementById('cheatMsg');if(c==='DEV'||c==='ВУМ'){DEV=true;$('devb').style.display='flex';$('cheat').classList.remove('show');devRefresh();$('dev').classList.add('show');S.cp();return}if(c==='GOD'||c==='ПЩВ'){GOD=!GOD;m.textContent=GOD?'Режим бога включён: Шрам неуязвим и не падает':'Режим бога выключен';S.cp()}else m.textContent='Неверный код'}
 addEventListener('keydown',e=>{
@@ -1746,11 +1739,13 @@ $('go').addEventListener('click',startGame);
 let cheatFrom=null;
 document.querySelectorAll('.openCheat').forEach(b=>b.addEventListener('click',()=>{cheatFrom=b.parentElement;cheatFrom.classList.remove('show');$('cheat').classList.add('show');$('cheatMsg').textContent=GOD?'Сейчас включён режим бога':'';const i=$('cheatIn');i.value='';setTimeout(()=>i.focus(),50)}));
 $('cheatOk').addEventListener('click',()=>applyCheat($('cheatIn').value));
-document.querySelectorAll('.dv').forEach(b=>b.addEventListener('click',()=>{const a=b.dataset.a;if(DEV_TOGGLE[a]){DEVACT[a]();devRefresh();S.cp();if(a==='shards'){b.classList.add('on');setTimeout(()=>b.classList.remove('on'),180)}}else devGo(DEVACT[a])}));
+document.querySelectorAll('.devtab').forEach(t=>t.addEventListener('click',()=>{document.querySelectorAll('.devtab').forEach(x=>x.classList.toggle('on',x===t));document.querySelectorAll('.devgrid').forEach(g=>g.style.display=g.dataset.g===t.dataset.t?'grid':'none')}));
+document.querySelectorAll('.dv').forEach(b=>b.addEventListener('click',()=>{const a=b.dataset.a;if(DEV_TOGGLE[a]){DEVACT[a]();devRefresh();S.cp();if(a==='shards'||a==='star'){b.classList.add('on');setTimeout(()=>b.classList.remove('on'),180)}}else devGo(DEVACT[a])}));
 $('devb').addEventListener('click',()=>{if(state==='play')pauseGame();$('pause').classList.remove('show');devRefresh();$('dev').classList.add('show')});
 $('devClose').addEventListener('click',()=>{$('dev').classList.remove('show');if(state==='pause')$('pause').classList.add('show');else if(state==='title')$('start').classList.add('show')});
 $('cheatClose').addEventListener('click',()=>{$('cheat').classList.remove('show');if(cheatFrom)cheatFrom.classList.add('show')});
 $('resume').addEventListener('click',resumeGame);
+$('quit').addEventListener('click',()=>{$('pause').classList.remove('show');if(A.ctx)A.ctx.resume();LEVEL=1;trans=null;fade=null;won=false;winShown=false;rumbleOff();resetGame();state='title';showControls(false);$('start').classList.add('show')});
 $('pse').addEventListener('click',()=>{if(state==='play')pauseGame()});
 $('snd').addEventListener('click',toggleMute);
 $('again').addEventListener('click',()=>{$('win').classList.remove('show');LEVEL=1;trans=null;resetGame();state='play';showControls(true);last=performance.now()});
