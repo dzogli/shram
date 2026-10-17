@@ -1,0 +1,21 @@
+{
+  "name": "shram-game",
+  "version": "1.0.0",
+  "description": "Шрам — броненосец Проклятой чащи",
+  "main": "main.js",
+  "author": "Shram",
+  "license": "UNLICENSED",
+  "scripts": {
+    "start": "electron .",
+    "dist:win": "electron-builder --win portable",
+    "dist:linux": "electron-builder --linux AppImage"
+  },
+  "build": {
+    "appId": "com.shram.game",
+    "productName": "Shram",
+    "directories": { "output": "dist" },
+    "files": ["main.js", "index.html", "manifest.webmanifest", "icons/**"],
+    "win": { "target": "portable", "icon": "icons/icon-512.png" },
+    "linux": { "target": "AppImage", "icon": "icons/icon-512.png", "category": "Game" }
+  }
+}

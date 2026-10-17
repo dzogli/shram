@@ -1,0 +1,6 @@
+{
+  "appId": "com.shram.game",
+  "appName": "Шрам",
+  "webDir": "www",
+  "android": { "backgroundColor": "#0a0610" }
+}
